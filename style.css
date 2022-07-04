@@ -23,7 +23,6 @@ body {
     flex-direction: column;
     background-color: skyblue;
     padding:200px;
-    width: 300px;
     text-align: center;
     font-weight: bolder;
 
@@ -40,7 +39,6 @@ body {
     flex-direction: column;
     background-color: skyblue;
     padding:200px;
-    width: 300px;
     text-align: center;
     font-weight: bolder;
   }
@@ -54,10 +52,8 @@ body {
     display:flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background-color: skyblue;
     padding:200px;
-    width: 300px;
     text-align: center;
     font-weight: bolder;
   }
