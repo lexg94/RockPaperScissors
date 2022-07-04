@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url(./simplejack.jpg);
   }
 
 .top-container {
@@ -24,17 +25,15 @@ body {
     background-color: skyblue;
     width:400px;
     height:400px;
+    font-size: 25px;
+    font-weight:bolder;
+    color:red;
   }
 
-
-
-.player .score {
-    font-size: 18px;
-  }
-
-
-.bot .score {
-    font-size: 18px;
+.game-display .score {
+    font-size: 30px;
+    font-weight:bolder;
+    color:red;
   }
 
 
@@ -42,7 +41,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 200px;
 }
 
 
@@ -50,6 +48,7 @@ body {
     width: 100px;
     height: 50px;
     font-weight: 900;
+    border-width: 5px;;
 }
 
 .reset {
@@ -57,4 +56,8 @@ body {
     align-items: center;
     justify-content: center;
     padding-top: 10px;
+}
+
+.reset .restart {
+    border-width: 30px;
 }
