@@ -1,8 +1,9 @@
 
-const btn = document.querySelectorAll('button');
-const results = document.querySelector('.display');
-const playerScore = document.querySelector('.player .score');
-const botScore = document.querySelector('.bot .score');
+const btn = document.querySelectorAll('.games button');
+const results = document.querySelector('#display');
+const playerScore = document.querySelector('#player .score');
+const botScore = document.querySelector('#bot .score');
+const rst = document.querySelector('.restart');
 
 var player = 0;
 var bot = 0;
@@ -81,21 +82,36 @@ function playRound(playerSelect, compSelect) {
 
     if (player === 5) {
         results.textContent = 'PLAYER WINS';
+
         
     }
     else if (bot === 5) {
         results.textContent = 'BOT WINS!';
+
         
     }
 
+}
+
+function restart() {
+    player = 0;
+    bot = 0;
+    playerScore.textContent = player;
+    botScore.textContent = bot;
 }
 
 btn.forEach((button) => {
 
 
     button.addEventListener('click', (e) => {
-        playerChoice = e.target.className;
+        playerChoice = e.target.id;
         console.log(playRound(playerChoice,computerPlay()));
 
     });
+});
+
+rst.addEventListener('click',() => {
+
+    restart();
+
 });
