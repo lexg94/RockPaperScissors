@@ -1,7 +1,12 @@
 
-// 0 - rock
-// 1 - paper
-// 2 - scissors
+const btn = document.querySelectorAll('button');
+const results = document.querySelector('.display');
+const playerScore = document.querySelector('.player .score');
+const botScore = document.querySelector('.bot .score');
+
+var player = 0;
+var bot = 0;
+
 
 function getRandomValue(max){
 
@@ -27,48 +32,70 @@ function computerPlay() {
 
 function playRound(playerSelect, compSelect) {
 
-
-    if (playerSelect === compSelect){
-        return 'It\'s a draw'
-    }
-    else if (playerSelect ==='rock' && compSelect === 'paper') {
-        return 'You lose! Rock loses to paper'
-    }
-    else if (playerSelect ==='paper' && compSelect === 'rock') {
-        return 'You Win! Paper beats rock'
-    }
-    else if (playerSelect ==='scissors' && compSelect === 'rock') {
-        return 'You lose! Scissors loses to rock'
-    }
-    else if (playerSelect ==='rock' && compSelect === 'scissors') {
-        return 'You Win! Rock beats scissors'
-    }
-    else if (playerSelect ==='paper' && compSelect === 'scissors') {
-        return 'You lose! Paper loses to scissors'
-    }
-    else if (playerSelect ==='scissors' && compSelect === 'paper') {
-        return 'You Win! Scissors beats paper'
-    }
+    if(player != 5 && bot != 5)
+    {
 
 
-}
+        if (playerSelect === compSelect){
+            results.textContent =  'It\'s a draw';
+            results.style.color = 'yellow';
+        }
+        else if (playerSelect ==='rock' && compSelect === 'paper') {
+            bot++;
+            results.textContent = 'You lose! Rock loses to paper';
+            results.style.color = 'red';
+            botScore.textContent = bot;
 
+        }
+        else if (playerSelect ==='paper' && compSelect === 'rock') {
+            player++;
+            results.textContent =  'You Win! Paper beats rock';
+            results.style.color = 'green';
+            playerScore.textContent = player;
+        }
+        else if (playerSelect ==='scissors' && compSelect === 'rock') {
+            bot++;
+            results.textContent =  'You lose! Scissors loses to rock';
+            results.style.color = 'red';
+            botScore.textContent = bot;
+        }
+        else if (playerSelect ==='rock' && compSelect === 'scissors') {
+            player++;
+            results.textContent =  'You Win! Rock beats scissors'
+            results.style.color = 'green'
+            playerScore.textContent = player;
+        }
+        else if (playerSelect ==='paper' && compSelect === 'scissors') {
+            bot++;
+            results.textContent =  'You lose! Paper loses to scissors'
+            results.style.color = 'red';
+            botScore.textContent = bot;
+        }
+        else if (playerSelect ==='scissors' && compSelect === 'paper') {
+            player++;
+            results.textContent =  'You Win! Scissors beats paper'
+            results.style.color = 'green'
+            playerScore.textContent = player;
+        }
+    }
 
-function game(){
-    for (let i = 1; i <= 5; i ++) {
-
-        let playerChoice = prompt("Input either Rock,Paper or Scissors").toLowerCase()
-
-        if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
+    if (player === 5) {
+        results.textContent = 'PLAYER WINS';
         
-            console.log(playRound(playerChoice,computerPlay()));
-
-        }
-        else {
-            alert('Invalid! Please enter a valid word');
-            i--;
-        }
     }
+    else if (bot === 5) {
+        results.textContent = 'BOT WINS!';
+        
+    }
+
 }
 
-game();
+btn.forEach((button) => {
+
+
+    button.addEventListener('click', (e) => {
+        playerChoice = e.target.className;
+        console.log(playRound(playerChoice,computerPlay()));
+
+    });
+});
